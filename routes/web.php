@@ -15,8 +15,13 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::group(['prefix' => 'admin'], function() {
-     Route::get('lesson/create', 'Admin\LessonController@add');
+Route::group(['prefix' => 'admin','middleware' => 'auth'], function() {
+     Route::get('lesson/create', 'Admin\LessonController@add')->middleware('auth');;
+     Route::post('lesson/create', 'Admin\LessonController@create')->middleware('auth');;
      
-     Route::get('student/create', 'Admin\StudentController@add');
+     Route::get('student/create', 'Admin\StudentController@add')->middleware('auth');;
 });
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');

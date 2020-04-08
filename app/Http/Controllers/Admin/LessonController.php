@@ -13,4 +13,9 @@ class LessonController extends Controller
         return view('admin.lesson.create');
     }
     
+     public function create(Request $request)
+  {
+      return redirect('admin/lesson/create');
+  }  
+    
 }
