@@ -16,10 +16,11 @@ Route::get('/', function () {
 });
 
 Route::group(['prefix' => 'admin','middleware' => 'auth'], function() {
-     Route::get('lesson/create', 'Admin\LessonController@add')->middleware('auth');;
-     Route::post('lesson/create', 'Admin\LessonController@create')->middleware('auth');;
+     Route::get('lesson/create', 'Admin\LessonController@add')->middleware('auth');
+     Route::post('lesson/create', 'Admin\LessonController@create')->middleware('auth');
      
-     Route::get('student/create', 'Admin\StudentController@add')->middleware('auth');;
+     Route::get('student/create', 'Admin\StudentController@add');
+     Route::post('student/create', 'Admin\StudentController@create');
 });
 
 Auth::routes();
