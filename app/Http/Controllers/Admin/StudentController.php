@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Admin;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use App\Student;
 
 class StudentController extends Controller
 {
@@ -14,16 +15,17 @@ class StudentController extends Controller
     }
     
      public function create(Request $request)
-    {
+    {   
         $this->validate($request, Student::$rules);
-        
-        $students = new Students;
+        $student = new Student;
+
         $form = $request->all();
-        
+
         unset($form['_token']);
         
-        $students->fill($form);
-        $students->save();
+        $student->fill($form);
+        $student->save();
+
         return redirect('admin/student/create');
     }  
 }
