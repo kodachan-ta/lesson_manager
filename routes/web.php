@@ -21,6 +21,10 @@ Route::group(['prefix' => 'admin','middleware' => 'auth'], function() {
      
      Route::get('student/create', 'Admin\StudentController@add');
      Route::post('student/create', 'Admin\StudentController@create');
+     Route::get('student/students', 'Admin\StudentController@index');
+     Route::get('student/students/edit', 'Admin\StudentController@edit');
+     Route::post('student/students/edit', 'Admin\StudentController@update');
+     Route::get('student/students/delete', 'Admin\NewsController@delete');
 });
 
 Auth::routes();

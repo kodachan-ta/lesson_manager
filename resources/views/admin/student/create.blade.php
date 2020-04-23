@@ -16,19 +16,19 @@
                         </ul>
                     @endif
                     <div class="form-group row">
-                        <label class="col-md-2">名前</label>
+                        <label class="col-md-2" for="student_name">名前</label>
                         <div class="col-md-10">
                             <input type="text" class="form-control" name="student_name" value="{{ old('student_name') }}">
                         </div>
                     </div>
                     <div class="form-group row">
-                        <label class="col-md-2">連絡先</label>
+                        <label class="col-md-2" for="phone_number">連絡先</label>
                         <div class="col-md-10">
                             <input type="text" class="form-control" name="phone_number" value="{{ old('phone_number') }}">
                         </div>
                     </div>
                     <div class="form-group row">
-                        <label class="col-md-2">メールアドレス</label>
+                        <label class="col-md-2" for="mail_address">メールアドレス</label>
                         <div class="col-md-10">
                             <input type="text" class="form-control" name="mail_address" value="{{ old('mail_address') }}">
                         </div>

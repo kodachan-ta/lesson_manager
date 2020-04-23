@@ -13,12 +13,12 @@ class CreateStudentId extends Migration
      */
     public function up()
     {
-        Schema::create('student_id', function (Blueprint $table) {
+        Schema::create('students', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->string('student_name'); //生徒名
             $table->string('phone_number'); //電話番号
             $table->string('mail_address'); //メールアドレス
-            $table->string('delete_fig'); //削除フラグ
+            $table->boolean('delete_flg'); //削除フラグ
             $table->timestamps();
             
         });
@@ -31,6 +31,6 @@ class CreateStudentId extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('student_id');
+        Schema::dropIfExists('students');
     }
 }

@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Student extends Model
 {
-    protected $guarded = array('id');
+    protected $guarded = array('student_id');
 
         public static $rules = array(
             'student_name' => 'required',
