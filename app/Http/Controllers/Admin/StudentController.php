@@ -27,7 +27,7 @@ class StudentController extends Controller
         $student->fill($form);
         $student->save();
         
-        return redirect('admin/student/create');
+        return redirect('admin/student/students');
     }
     
     public function index(Request $request)
@@ -47,7 +47,7 @@ class StudentController extends Controller
       if (empty($student)) {
         abort(404);    
       }
-      return view('admin.student.create', ['student_form' => $Student]);
+      return view('admin.student.edit', ['student_form' => $student]);
     }
     
     public function update(Request $request)
@@ -64,8 +64,8 @@ class StudentController extends Controller
     
     public function delete(Request $request)
     {
-        $news = Student::find($request->id);
-        $news->delete();
+        $student = Student::find($request->id);
+        $student->delete();
       return redirect('admin/student/students');
         
     }

@@ -13,7 +13,7 @@
             <div class="col-md-8">
                 <form action="{{ action('Admin\StudentController@index') }}" method="get">
                     <div class="form-group row">
-                        <label class="col-md-2">タイトル</label>
+                        <label class="col-md-2">生徒名</label>
                         <div class="col-md-8">
                             <input type="text" class="form-control" name="cond_student" value="{{ $cond_student }}">
                         </div>
@@ -45,7 +45,7 @@
                                     <th>{{ $student->mail_address }}</th>
                                     <td>
                                     <div>
-                                        <a href="{{ action('Admin\StudentController@edit', ['id' => $student->id]) }}">編集</a> 　　//idの意味
+                                        <a href="{{ action('Admin\StudentController@edit', ['id' => $student->id]) }}">編集</a>
                                     </div>
                                     <div>
                                         <a href="{{ action('Admin\StudentController@delete', ['id' => $student->id]) }}">削除</a>

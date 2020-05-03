@@ -24,9 +24,15 @@ Route::group(['prefix' => 'admin','middleware' => 'auth'], function() {
      Route::get('student/students', 'Admin\StudentController@index');
      Route::get('student/students/edit', 'Admin\StudentController@edit');
      Route::post('student/students/edit', 'Admin\StudentController@update');
-     Route::get('student/students/delete', 'Admin\NewsController@delete');
+     Route::get('student/students/delete', 'Admin\StudentController@delete');
+     
+     Route::get('lesson/calendar2', 'Admin\LessonController@showCalendar');
 });
 
+Route::get('lesson/calendar','admin\LessonController@a');
+Route::get('/aaa', function () {
+    return view('admin.lesson.calendar');
+});
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
