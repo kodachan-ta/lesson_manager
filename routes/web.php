@@ -18,6 +18,7 @@ Route::get('/', function () {
 Route::group(['prefix' => 'admin','middleware' => 'auth'], function() {
      Route::get('lesson/create', 'Admin\LessonController@add')->middleware('auth');
      Route::post('lesson/create', 'Admin\LessonController@create')->middleware('auth');
+     Route::get('lesson/', 'CalendarController@index')->name('calendar');
      
      Route::get('student/create', 'Admin\StudentController@add');
      Route::post('student/create', 'Admin\StudentController@create');
@@ -26,13 +27,9 @@ Route::group(['prefix' => 'admin','middleware' => 'auth'], function() {
      Route::post('student/students/edit', 'Admin\StudentController@update');
      Route::get('student/students/delete', 'Admin\StudentController@delete');
      
-     Route::get('lesson/calendar2', 'Admin\LessonController@showCalendar');
+    
+     
 });
 
-Route::get('lesson/calendar','admin\LessonController@a');
-Route::get('/aaa', function () {
-    return view('admin.lesson.calendar');
-});
-Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');

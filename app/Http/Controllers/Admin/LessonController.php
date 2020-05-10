@@ -25,7 +25,7 @@ class LessonController extends Controller
  
         $month = new CarbonImmutable($month);
  
-        return view('calendar', compact( 'calendar', 'month'));
+        return view('admin.lesson.calendar2', compact( 'calendar', 'month'));
     }
   
   

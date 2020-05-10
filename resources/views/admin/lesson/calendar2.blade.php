@@ -1,5 +1,5 @@
 @extends('layouts.admin')
-@section('title', 'レッスン作成')
+@section('title', 'レッスン日程')
 
 @section('content')
     <div class="card">
