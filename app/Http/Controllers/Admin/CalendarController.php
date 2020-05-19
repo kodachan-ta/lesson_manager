@@ -18,7 +18,7 @@ class CalendarController extends Controller
 
     public function index()
     {
-        return view('calendar', [
+        return view('admin.lesson.calendar', [
             // 'weeks'         => $this->service->getWeeks(),
             'weeks'         => Calendar::getWeeks(),
             'month'         => Calendar::getMonth(),

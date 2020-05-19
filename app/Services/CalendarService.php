@@ -26,18 +26,21 @@ class CalendarService
         for ($day = 1; $day <= $days_in_month; $day++, $day_of_week++) {
             $date = self::getYm() . '-' . $day;
             if (Carbon::now()->format('Y-m-j') === $date) {
-                $week .= '<td class="today">' . $day;
+                $week .= '<td class="today"><a href="{{ action('LessonController@TimeSelection', $post->id) }}">{{ $post->title }} . $day;
             } else {
-                $week .= '<td>' . $day;
+                $week .= '<td><a href="{{ action('LessonController@TimeSelection', $post->id) }}">{{ $post->title }}>' . $day;
             }
-            $week .= '</td>';
+            $week .= '</a></td>';
+            
+            
+            
 
             // 週の終わり、または月末
             if (($day_of_week % 7 === 6) || ($day === $days_in_month)) {
                 if ($day === $days_in_month) {
                     $week .= str_repeat('<td></td>', 6 - ($day_of_week % 7));
                 }
-                $weeks[] = '<tr>' . $week . '</tr>';
+                $weeks[] = '<tr>'. $week . '</tr>';
                 $week = '';
             }
         }

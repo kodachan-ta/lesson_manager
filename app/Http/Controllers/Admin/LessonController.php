@@ -18,21 +18,11 @@ class LessonController extends Controller
       return redirect('admin/lesson/create');
     }
     
-    public function showCalendar(Request $request, $month)
+     public function TimeSelection(Request $request)
     {
- 
-        $calendar = calendar($section, $patient, $month);
- 
-        $month = new CarbonImmutable($month);
- 
-        return view('admin.lesson.calendar2', compact( 'calendar', 'month'));
+        $form = $request->all();
+        
+        return redirect('admin.lesson.time');
     }
-  
-  
-  
-    public function a()
-    {
-      return view('admin.lesson.calendar');
-    }  
     
 }

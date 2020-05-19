@@ -10,7 +10,7 @@
 | contains the "web" middleware group. Now create something great!
 |
 */
-
+Auth::routes();
 Route::get('/', function () {
     return view('welcome');
 });
@@ -18,7 +18,8 @@ Route::get('/', function () {
 Route::group(['prefix' => 'admin','middleware' => 'auth'], function() {
      Route::get('lesson/create', 'Admin\LessonController@add')->middleware('auth');
      Route::post('lesson/create', 'Admin\LessonController@create')->middleware('auth');
-     Route::get('lesson/', 'CalendarController@index')->name('calendar');
+     Route::get('lesson', 'Admin\CalendarController@index')->name('calendar');
+     Route::post('lesson/time', 'Admin\LessonController@TaimeSelection');
      
      Route::get('student/create', 'Admin\StudentController@add');
      Route::post('student/create', 'Admin\StudentController@create');
@@ -31,5 +32,3 @@ Route::group(['prefix' => 'admin','middleware' => 'auth'], function() {
      
 });
 
-
-Route::get('/home', 'HomeController@index')->name('home');

@@ -12,4 +12,10 @@ class Lesson extends Model
         'student_name' => 'required',
         'curriculum' => 'required',
     );
+    
+    //Studentモデルに関連付け
+    public function students()
+    {
+        return $this->hasMany('App\Student');
+    }
 }
