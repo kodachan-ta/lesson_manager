@@ -40,5 +40,3 @@
     </div>
 </div>
 @endsection
-
-<!--formタグで年月日をコンロトーラーに渡す month=年月　$week or $day=日？<form action="{{ action('Admin\LessonController@TimeSelection') }}" method="post" enctype="multipart/form-data"> >

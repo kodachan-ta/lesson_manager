@@ -28,7 +28,8 @@ class CalendarController extends Controller
     
     public function aaa(Request $request)
     {
-        return redirect('admin/lesson/time',['calendar_form' =>month,today]); 
+        $post = Post::findOrFail();
+        return redirect('admin/lesson/time')->with('post',$post); 
     }
     
 }

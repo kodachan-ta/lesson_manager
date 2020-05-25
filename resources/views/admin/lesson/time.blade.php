@@ -8,6 +8,11 @@
             <h2>20XX.XX.XX　レッスン時間選択</h2>
             <table class="table table-bordered">
                         <tr>
+                            <th>レッスン時間</th>
+                            <th>生徒名</th>
+                        </tr>
+                        
+                        <tr>
                             <th>15:00</th>
                         </tr>
                         

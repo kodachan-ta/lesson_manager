@@ -15,18 +15,16 @@ class LessonController extends Controller
     
     public function create(Request $request)
     {
-      return redirect('admin/lesson/create');
+      return redirect('admin/lesson/time');
     }
     
     public function TimeSelection(Request $request)
     {
-        $form = $request->all();
-        
-        return redirect('admin.lesson.time');
+        return redirect('admin.lesson.create');
     }
     
-    public function test()
+    public function time()
     {
-     return view('admin.lesson/time');
+     return view('admin.lesson.time');
     }
 }
