@@ -15,20 +15,19 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+ Route::get('/', 'Admin\LessonController@test');
+
+
 Route::group(['prefix' => 'admin','middleware' => 'auth'], function() {
      Route::get('lesson/create', 'Admin\LessonController@add')->middleware('auth');
      Route::post('lesson/create', 'Admin\LessonController@create')->middleware('auth');
-     Route::get('lesson', 'Admin\CalendarController@index')->name('calendar');
-     Route::post('lesson/time', 'Admin\LessonController@TaimeSelection');
-     
+     Route::get('lesson/calendar', 'CalendarController@index')->name('calendar');
+     Route::post('lesson/time','CalendarController@aaa');
+
      Route::get('student/create', 'Admin\StudentController@add');
      Route::post('student/create', 'Admin\StudentController@create');
      Route::get('student/students', 'Admin\StudentController@index');
      Route::get('student/students/edit', 'Admin\StudentController@edit');
      Route::post('student/students/edit', 'Admin\StudentController@update');
      Route::get('student/students/delete', 'Admin\StudentController@delete');
-     
-    
-     
 });
-

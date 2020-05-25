@@ -6,7 +6,7 @@
         <div class="row">
             <div class="col-md-8 mx-auto">
                 <h2>レッスン作成</h2>
-                <div class="form-group row">
+                    <div class="form-group row">
                         <label class="col-md-2">生徒名</label>
                         <div class="col-md-10">
                             <input type="text" class="form-control" name="title" value="{{ old('title') }}">

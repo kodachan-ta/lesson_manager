@@ -1,11 +1,10 @@
 <?php
 
-namespace App\Http\Controllers\Admin;
+namespace App\Http\Controllers;
 
 use App\Facades\Calendar;
 use App\Services\CalendarService;
 use Illuminate\Http\Request;
-use App\Http\Controllers\Controller;
 
 class CalendarController extends Controller
 {
@@ -26,4 +25,10 @@ class CalendarController extends Controller
             'next'          => Calendar::getNext(),
         ]);
     }
+    
+    public function aaa(Request $request)
+    {
+        return redirect('admin/lesson/time',['calendar_form' =>month,today]); 
+    }
+    
 }
