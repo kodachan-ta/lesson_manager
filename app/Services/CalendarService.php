@@ -26,9 +26,9 @@ class CalendarService
         for ($day = 1; $day <= $days_in_month; $day++, $day_of_week++) {
             $date = self::getYm() . '-' . $day;
             if (Carbon::now()->format('Y-m-j') === $date) {
-                $week .= '<td class="today"><a href="{{ action(\'CalendarController@aaa\',$post->Carbon::parse->format(\'Ymd\')) }}">'. $day;
+                $week .= '<td class="today"><a href="time?selecteDate=' .$date . '">'. $day;
             } else {
-                $week .= '<td class="today"><a href="{{ action(\'CalendarController@aaa\',$post->Carbon::parse->format(\'Ymd\')) }}">' . $day;
+                $week .= '<td class="another_day"><a href="time?selecteDate=' .$date . '">'. $day;
             }
             $week .= '</a></td>';
 
@@ -39,11 +39,13 @@ class CalendarService
                 }
                 $weeks[] = '<tr>' . $week . '</tr>';
                 $week = '';
+ 
             }
         }
         return $weeks;
     }
 //action 以外でのURLの取得
+
     /**
      * month 文字列を返却する
      *

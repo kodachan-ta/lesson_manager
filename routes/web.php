@@ -19,11 +19,13 @@ Route::get('/', function () {
 
 
 Route::group(['prefix' => 'admin','middleware' => 'auth'], function() {
-     Route::get('lesson/create', 'Admin\LessonController@add')->middleware('auth');
+     //oute::get('lesson/create', 'Admin\LessonController@add')->middleware('auth');
+     Route::get('lesson/student_select', 'Admin\LessonController@student_index')->middleware('auth');
+     Route::get('lesson/create', 'Admin\LessonController@student_select')->middleware('auth');
      Route::post('lesson/create', 'Admin\LessonController@create')->middleware('auth');
      Route::get('lesson/calendar', 'CalendarController@index')->name('calendar');
-     Route::post('lesson/Carbon::parse->format(\'Ymd\')','CalendarController@aaa');
      Route::get('lesson/time', 'Admin\LessonController@time');
+     Route::get('lesson/time', 'CalendarController@time');
 
      Route::get('student/create', 'Admin\StudentController@add');
      Route::post('student/create', 'Admin\StudentController@create');

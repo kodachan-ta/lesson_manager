@@ -6,7 +6,7 @@
     <div class="row">
         <div class="col-md-8 mx-auto">
             <h2>レッスン日選択</h2>
-            <form action="{{ action('CalendarController@aaa') }}" method="post" enctype="multipart/form-data">
+            <form action="{{ action('CalendarController@time') }}" method="post" enctype="multipart/form-data">
                 <div class="flex-center position-ref full-height">
                     <div class="content">
 
@@ -26,6 +26,7 @@
                             <th>金</th>
                             <th>土</th>
                         </tr>
+                        
                             @foreach ($weeks as $week)
                                 {!! $week !!}
                             @endforeach

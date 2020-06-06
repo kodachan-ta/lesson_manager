@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use App\Facades\Calendar;
 use App\Services\CalendarService;
 use Illuminate\Http\Request;
+use Carbon\Carbon;
+use App\Post;
 
 class CalendarController extends Controller
 {
@@ -12,7 +14,8 @@ class CalendarController extends Controller
 
     public function __construct(CalendarService $service)
     {
-        $this->service = $service;
+        // dd($service);
+        // $this->service = $service
     }
 
     public function index()
@@ -26,10 +29,10 @@ class CalendarController extends Controller
         ]);
     }
     
-    public function aaa(Request $request)
+    public function time(Request $request)
     {
-        $post = Post::findOrFail();
-        return redirect('admin/lesson/time')->with('post',$post); 
+        $time = '日程';
+        return view('admin.lesson.time')->with('time',$time); 
     }
     
 }
