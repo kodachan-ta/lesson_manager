@@ -7,6 +7,7 @@ use App\Services\CalendarService;
 use Illuminate\Http\Request;
 use Carbon\Carbon;
 use App\Post;
+use App\Lesson;
 
 class CalendarController extends Controller
 {
@@ -31,8 +32,9 @@ class CalendarController extends Controller
     
     public function time(Request $request)
     {
-        $time = '日程';
-        return view('admin.lesson.time')->with('time',$time); 
+        $posts = Lesson::where('lesson_day',$request->selectedDate)->get();
+        $time = $request->selectedDate;
+        return view('admin.lesson.time',['posts' => $posts, 'time' => $time]); 
     }
-    
+
 }

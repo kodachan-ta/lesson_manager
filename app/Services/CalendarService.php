@@ -24,11 +24,11 @@ class CalendarService
         $week .= str_repeat('<td></td>', $day_of_week);
 
         for ($day = 1; $day <= $days_in_month; $day++, $day_of_week++) {
-            $date = self::getYm() . '-' . $day;
+            $date = self::getYm() . '-' . str_pad($day,2,0,STR_PAD_LEFT);
             if (Carbon::now()->format('Y-m-j') === $date) {
-                $week .= '<td class="today"><a href="time?selecteDate=' .$date . '">'. $day;
+                $week .= '<td class="today"><a href="time?selectedDate=' .$date . '">'. $day;
             } else {
-                $week .= '<td class="another_day"><a href="time?selecteDate=' .$date . '">'. $day;
+                $week .= '<td class="another_day"><a href="time?selectedDate=' .$date . '">'. $day;
             }
             $week .= '</a></td>';
 

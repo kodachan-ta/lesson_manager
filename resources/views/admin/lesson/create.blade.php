@@ -16,49 +16,23 @@
                         </ul>
                     @endif
                     
+                    <h3>登録日：{{ $day }} レッスン時間：{{ $time }}</h3>
+                    
+                    <input type="hidden" name="lesson_start" value="{{ $time }}">
+                    <input type="hidden" name="lesson_end" value="0">
+                    <input type="hidden" name="lesson_day" value="{{ $day }}">
+                    
                     <div class="form-group row">
                         <label class="col-md-2">生徒名</label>
                         <div class="col-md-10">
-                            <input type="text" class="form-control" name="student_name" value="{{ $student_form->student_name }}">
+                            <select name="student_name">
+                                @foreach($students as $student)
+                                <option value="{{ $student->student_name }}">{{ $student->student_name }}</option>
+                                @endforeach
+                            </select>
                         </div>
                     </div>
-                    
-                    <div class="form-group row">
-                        <label class="col-md-2"><tr>時間開始選択</tr></label>
-                        <div class="col-md-10">
-                            <td>
-                            15:00<input type="radio"  name="lesson_start" value="{{ old('lesson_start') }}">
-                            15:30<input type="radio"  name="lesson_start" value="{{ old('lesson_start') }}">
-                            16:00<input type="radio"  name="lesson_start" value="{{ old('lesson_start') }}">
-                            16:30<input type="radio"  name="lesson_start" value="{{ old('lesson_start') }}">
-                            17:00<input type="radio"  name="lesson_start" value="{{ old('lesson_start') }}">
-                            17:30<input type="radio"  name="lesson_start" value="{{ old('lesson_start') }}">
-                            18:00<input type="radio"  name="lesson_start" value="{{ old('lesson_start') }}">
-                            18:30<input type="radio"  name="lesson_start" value="{{ old('lesson_start') }}">
-                            19:00<input type="radio"  name="lesson_start" value="{{ old('lesson_start') }}">
-                            19:30<input type="radio"  name="lesson_start" value="{{ old('lesson_start') }}">
-                            </td>
-                        </div>
-                    </div>
-                    
-                    <div class="form-group row">
-                        <label class="col-md-2"><tr>時間終了選択</tr></label>
-                        <div class="col-md-10">
-                            <td>
-                            15:00<input type="radio"  name="lesson_end" value="{{ old('lesson_start') }}">
-                            15:30<input type="radio"  name="lesson_end" value="{{ old('lesson_start') }}">
-                            16:00<input type="radio"  name="lesson_end" value="{{ old('lesson_start') }}">
-                            16:30<input type="radio"  name="lesson_end" value="{{ old('lesson_start') }}">
-                            17:00<input type="radio"  name="lesson_end" value="{{ old('lesson_start') }}">
-                            17:30<input type="radio"  name="lesson_end" value="{{ old('lesson_start') }}">
-                            18:00<input type="radio"  name="lesson_end" value="{{ old('lesson_start') }}">
-                            18:30<input type="radio"  name="lesson_end" value="{{ old('lesson_start') }}">
-                            19:00<input type="radio"  name="lesson_end" value="{{ old('lesson_start') }}">
-                            19:30<input type="radio"  name="lesson_end" value="{{ old('lesson_start') }}">
-                            </td>
-                        </div>
-                    </div>
-                    
+   
                     <div class="form-group row">
                         <label class="col-md-2">レッスン内容</label>
                         <div class="col-md-10">
@@ -67,6 +41,7 @@
                     </div>
                     {{ csrf_field() }}
                     <input type="submit" class="btn btn-primary" value="登録">
+                    
                 </form>
             </div>
         </div>

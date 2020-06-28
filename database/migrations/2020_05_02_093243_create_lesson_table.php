@@ -13,12 +13,12 @@ class CreateLessonTable extends Migration
      */
     public function up()
     {
-        Schema::create('lesson', function (Blueprint $table) {
+        Schema::create('lessons', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->string("curriculum");
-            $table->string("lesson_start");
-            $table->string("lesson_end");
-            $table->string("lesson_day");
+            $table->time("lesson_start");
+            $table->time("lesson_end");
+            $table->date("lesson_day");
             $table->string("student_name");
             $table->timestamps();
         });
@@ -31,6 +31,6 @@ class CreateLessonTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('lesson');
+        Schema::dropIfExists('lessons');
     }
 }
