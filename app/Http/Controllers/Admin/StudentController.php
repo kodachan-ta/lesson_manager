@@ -37,7 +37,7 @@ class StudentController extends Controller
             $query = Student::query();
             $query ->where('student_name','LIKE binary',"%$cond_student%");
             $query ->where('delete_flg',0);
-            $posts = $post->get();
+            $posts = $query->get();
         }else{
             $posts = Student::where('delete_flg',0)->get();
         }

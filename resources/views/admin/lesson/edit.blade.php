@@ -16,7 +16,7 @@
                         </ul>
                     @endif
                     
-                    <h3>登録日：{{ $day }} レッスン時間：{{ $time }}</h3>
+                    <h3 class="t-number">登録日：{{ $day }} レッスン時間：{{ $time }}</h3>
                     
                     <input type="hidden" name="lesson_start" value="{{ $time }}">
                     <input type="hidden" name="lesson_end" value="0">

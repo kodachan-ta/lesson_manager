@@ -16,7 +16,7 @@
                 </thead>
                 @foreach($today_lesson as $lesson)
                     <tr>
-                        <th class="t-body">{{ $lesson->lesson_start }}</th>
+                        <th class="t-number">{{ $lesson->lesson_start }}</th>
                         <th class="t-body">{{ $lesson->student_name }}</th>
                         <th class="t-body">{{ $lesson->curriculum }}</th>
                     </tr>
