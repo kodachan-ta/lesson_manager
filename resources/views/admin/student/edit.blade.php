@@ -36,6 +36,7 @@
                     <div class="form-group row">
                         <div class="col-md-10">
                             <input type="hidden" name="id" value="{{ $student_form->id }}">
+                            <input type="hidden" name="delete_flg" value="0">
                             {{ csrf_field() }}
                             <input type="submit" class="btn btn-primary" value="更新">
                         </div>

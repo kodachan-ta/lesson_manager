@@ -33,6 +33,7 @@
                             <input type="text" class="form-control" name="mail_address" value="{{ old('mail_address') }}">
                         </div>
                     </div>
+                    <input type="hidden" name="delete_flg" value="0">
                     {{ csrf_field() }}
                     <input type="submit" class="btn btn-primary" value="登録">
                 </form>

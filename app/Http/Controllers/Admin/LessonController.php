@@ -12,7 +12,7 @@ class LessonController extends Controller
     
     public function add(Request $request)
     {
-        $students = Student::all();
+        $students = Student::where('delete_flg',0)->get();
         
         $day = $request->selectedDate;
         $time = $request->selectedTime;
@@ -35,12 +35,12 @@ class LessonController extends Controller
         $lesson->fill($form);
         $lesson->save();
         
-        return redirect('admin/lesson/calendar')->withinput(['day' => $day, 'time' => $time]);
+        return redirect('/')->withinput(['day' => $day, 'time' => $time]);
     }
     
     public function edit(Request $request)
     {
-        $students = Student::all();
+        $students = Student::where('delete_flg',0)->get();
         
         $day = $request->selectedDate;
         $time = $request->selectedTime;
@@ -61,7 +61,7 @@ class LessonController extends Controller
         
         $lesson->fill($lesson_form)->save();
         
-        return redirect('admin/lesson/calendar');
+        return redirect('/');
     }
     
     public function delete(Request $request)

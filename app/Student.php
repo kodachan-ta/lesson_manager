@@ -12,5 +12,6 @@ class Student extends Model
             'student_name' => 'required',
             'phone_number' => 'required',
             'mail_address' => 'required',
+            'delete_flg' => 'required',
     );
 }

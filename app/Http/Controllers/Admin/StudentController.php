@@ -34,9 +34,12 @@ class StudentController extends Controller
     {
         $cond_student =$request->cond_student;
         if($cond_student !=""){
-            $posts = Student::where('student_name',$cond_student)->get();
+            $query = Student::query();
+            $query ->where('student_name','LIKE binary',"%$cond_student%");
+            $query ->where('delete_flg',0);
+            $posts = $post->get();
         }else{
-            $posts = Student::all();
+            $posts = Student::where('delete_flg',0)->get();
         }
         return view('admin.student.students',['posts' => $posts,'cond_student'=>$cond_student]);
     }
@@ -65,7 +68,10 @@ class StudentController extends Controller
     public function delete(Request $request)
     {
         $student = Student::find($request->id);
-        $student->delete();
+        //$student->delete();
+        $student->delete_flg=1;
+        $student->save();
+        
       return redirect('admin/student/students');
         
     }
