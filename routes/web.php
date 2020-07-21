@@ -15,7 +15,7 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/','ToppageController@add');
+Route::get('/','ToppageController@add')->middleware('auth');
 
 Route::group(['prefix' => 'admin','middleware' => 'auth'], function() {
 

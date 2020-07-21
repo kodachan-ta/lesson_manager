@@ -79,7 +79,7 @@ return [
     'max' => [
         'numeric' => 'The :attribute may not be greater than :max.',
         'file' => 'The :attribute may not be greater than :max kilobytes.',
-        'string' => 'The :attribute may not be greater than :max characters.',
+        'string' =>  ':attribute は半角:max文字以内で入力が必要です。',
         'array' => 'The :attribute may not have more than :max items.',
     ],
     'mimes' => 'The :attribute must be a file of type: :values.',
@@ -149,6 +149,7 @@ return [
         'student_name' => '名前',
         'phone_number' => '連絡先',
         'mail_address' => 'メールアドレス',
+        'curriculum' => 'レッスン内容',
     ],
 
 ];

@@ -68,7 +68,7 @@ class LessonController extends Controller
     {
         $lesson = Lesson::find($request->id);
         $lesson->delete();
-      return redirect('admin/lesson/calendar');
+      return redirect('/');
     }
     
     public function student_index(Request $request)

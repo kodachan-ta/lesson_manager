@@ -18,7 +18,7 @@ class StudentController extends Controller
     {   
         $this->validate($request, Student::$rules);
         $student = new Student;
-        $student->delete_flg=0;
+        $student->delete_flg = 0;
         
         $form = $request->all();
         
@@ -33,14 +33,13 @@ class StudentController extends Controller
     public function index(Request $request)
     {
         $cond_student =$request->cond_student;
-        if($cond_student !=""){
-            $query = Student::query();
+        $query = Student::query();
+        if($cond_student != ""){
             $query ->where('student_name','LIKE binary',"%$cond_student%");
-            $query ->where('delete_flg',0);
-            $posts = $query->get();
-        }else{
-            $posts = Student::where('delete_flg',0)->get();
         }
+        $query ->where('delete_flg',0);
+        $query ->orderBy('student_name','asc');
+        $posts = $query->get();
         return view('admin.student.students',['posts' => $posts,'cond_student'=>$cond_student]);
     }
     
@@ -69,7 +68,7 @@ class StudentController extends Controller
     {
         $student = Student::find($request->id);
         //$student->delete();
-        $student->delete_flg=1;
+        $student->delete_flg = 1;
         $student->save();
         
       return redirect('admin/student/students');

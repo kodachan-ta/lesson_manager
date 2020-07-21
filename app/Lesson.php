@@ -10,7 +10,7 @@ class Lesson extends Model
     
     public static $rules = array(
         'student_name' => 'required',
-        'curriculum' => 'required',
+        'curriculum' => 'required|max:240',
         'lesson_start' => 'required',
         'lesson_end' => 'required',
         'lesson_day' => 'required',
