@@ -19,7 +19,7 @@
                     <h3 class="t-number">登録日：{{ $day }} レッスン時間：{{ $time }}</h3>
                     
                     <input type="hidden" name="lesson_start" value="{{ $time }}">
-                    <input type="hidden" name="lesson_end" value="0">
+                    <input type="hidden" name="lesson_end" value="0000">
                     <input type="hidden" name="lesson_day" value="{{ $day }}">
                     
                     <div class="form-group row">
