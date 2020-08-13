@@ -19,6 +19,7 @@ class CreateStudentId extends Migration
             $table->string('phone_number'); //電話番号
             $table->string('mail_address'); //メールアドレス
             $table->boolean('delete_flg'); //削除フラグ
+            $table->integer('user');//ユーザー管理カラム
             $table->timestamps();
             
         });

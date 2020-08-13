@@ -21,6 +21,7 @@
                     <input type="hidden" name="lesson_start" value="{{ $time }}">
                     <input type="hidden" name="lesson_end" value="0000">
                     <input type="hidden" name="lesson_day" value="{{ $day }}">
+                    <input type="hidden" name="user" value="{{ $user }}">
                     
                     <div class="form-group row">
                         <label class="col-md-2">生徒名</label>

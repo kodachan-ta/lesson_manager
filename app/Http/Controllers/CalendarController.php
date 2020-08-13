@@ -8,6 +8,7 @@ use Illuminate\Http\Request;
 use Carbon\Carbon;
 use App\Post;
 use App\Lesson;
+use Illuminate\Support\Facades\Auth;
 
 class CalendarController extends Controller
 {
@@ -32,7 +33,13 @@ class CalendarController extends Controller
     
     public function time(Request $request)
     {
-        $posts = Lesson::where('lesson_day',$request->selectedDate)->get();
+        $user = Auth::id();
+        
+        $query = Lesson::query();
+        $query ->where('user',$user);
+        $query ->where('lesson_day',$request->selectedDate);
+        $posts = $query->get();
+
         $time = $request->selectedDate;
         return view('admin.lesson.time',['posts' => $posts, 'time' => $time]); 
     }

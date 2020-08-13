@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Admin;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Student;
+use Illuminate\Support\Facades\Auth;
 
 class StudentController extends Controller
 {
@@ -16,9 +17,12 @@ class StudentController extends Controller
     
      public function create(Request $request)
     {   
+        $user = Auth::id();
+        
         $this->validate($request, Student::$rules);
         $student = new Student;
         $student->delete_flg = 0;
+        $student->user = $user;
         
         $form = $request->all();
         
@@ -32,12 +36,15 @@ class StudentController extends Controller
     
     public function index(Request $request)
     {
+        $user = Auth::id();
+        
         $cond_student =$request->cond_student;
         $query = Student::query();
         if($cond_student != ""){
             $query ->where('student_name','LIKE binary',"%$cond_student%");
         }
         $query ->where('delete_flg',0);
+        $query ->where('user',$user);
         $query ->orderBy('student_name','asc');
         $posts = $query->get();
         return view('admin.student.students',['posts' => $posts,'cond_student'=>$cond_student]);
@@ -67,7 +74,6 @@ class StudentController extends Controller
     public function delete(Request $request)
     {
         $student = Student::find($request->id);
-        //$student->delete();
         $student->delete_flg = 1;
         $student->save();
         

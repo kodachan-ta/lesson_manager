@@ -20,6 +20,7 @@ class CreateLessonTable extends Migration
             $table->time("lesson_end");
             $table->date("lesson_day");
             $table->string("student_name");
+            $table->integer("user");
             $table->timestamps();
         });
     }

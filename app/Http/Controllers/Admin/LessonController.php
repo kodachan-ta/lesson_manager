@@ -6,13 +6,19 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Student;
 use App\Lesson;
+use Illuminate\Support\Facades\Auth;
 
 class LessonController extends Controller
 {
     
     public function add(Request $request)
     {
-        $students = Student::where('delete_flg',0)->get();
+        $user = Auth::id();
+        
+        $query = Student::query();
+            $query ->where('user',$user);
+            $query ->where('delete_flg',0);
+        $students = $query->get();
         
         $day = $request->selectedDate;
         $time = $request->selectedTime;
@@ -24,9 +30,11 @@ class LessonController extends Controller
     {
         $day = $request->selectedDate;
         $time = $request->selectedTime;
+        $user = Auth::id();
         
         $this->validate($request, Lesson::$rules);
         $lesson = new Lesson;
+        $lesson->user = $user;
         
         $form = $request->all();
         
@@ -40,7 +48,12 @@ class LessonController extends Controller
     
     public function edit(Request $request)
     {
-        $students = Student::where('delete_flg',0)->get();
+        $user = Auth::id();
+        
+        $query = Student::query();
+            $query ->where('user',$user);
+            $query ->where('delete_flg',0);
+        $students = $query->get();
         
         $day = $request->selectedDate;
         $time = $request->selectedTime;
@@ -49,7 +62,7 @@ class LessonController extends Controller
         if (empty($lesson)){
             about(404);
         }
-        return view('admin.lesson.edit',['lesson_form' => $lesson, 'students' => $students, 'day' => $day, 'time' => $time]);
+        return view('admin.lesson.edit',['lesson_form' => $lesson, 'students' => $students, 'day' => $day, 'time' => $time, 'user' => $user]);
     }
     
     public function update(Request $request)
